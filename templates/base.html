@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo</title>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"> 
+    
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <!-- <script src="https://use.fontawesome.com/0e27053dd4.js"></script> -->
+
+    <!-- Compiled and minified CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+    <!-- Perspective API -->
+    <script src='https://storage.googleapis.com/checker_source/perspective_authorship_widget.js'></script>
+
+</head>
+
+<body>
+<!-- Background -->
+
+<div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+
+
+
+
+
+
+    <!--  -->
+
+    <div class="container">
+        <div class="header clearfix">
+            <nav class="navbar-dark" style="background-color: rgba(98, 98, 98, 0.267);">
+              <div class="nav-wrapper">
+              <a href="/" class="brand-logo center" style="color: #00e6b9; a:hover: #fff;">Toximeter</a>
+              <a href="#" class="sidenav-trigger" data-target="slide_out"> <i class="material-icons">menu</i></a>
+
+               <!-- left side -->
+              <ul class="left hide-on-med-and-down">
+                  <li class="active waves-effect waves-light"><a href="/"><i class="material-icons left">keyboard_capslock</i></a></li>
+                  <li class="waves-effect waves-light"><a href="/toxicity_classifier">Toxicity Classifier</a></li>
+                  <li class="waves-effect waves-light"><a href="/perspective">Perspective</a></li>
+              </ul>
+
+              <!-- right side -->
+              <ul class="right hide-on-med-and-down">
+                  <li class="waves-effect waves-light"><a href="/about">About</a></li>
+                  <li class="disabled waves-effect waves-light"><a href="/contact">Contact</a></li>
+              </ul>
+              </div>
+          </nav>
+        </div>
+    </div>
+
+
+
+{% block content %} {% endblock %}
+
+
+
+</div>
+
+</body>
+
+<script>
+    var credits = {"text": "Toximator", }
+</script>
+
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- speech_to_text.js -->
+<script src="{{ url_for('static', filename='js/speech_to_text.js') }}" type="text/javascript"></script>
+
+<!-- high chart stuff -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<!-- <script src="../static/graph.js"></script> -->
+<script src="{{ url_for('static', filename='js/graph.js') }}" type="text/javascript"></script>
+
+
+</html>

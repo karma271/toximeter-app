@@ -1,0 +1,82 @@
+
+{% extends "base.html" %}
+{% block title %} Toxicity {% endblock %}
+{% block content %}
+<script>
+  var data_from_flask = '{{ test_data }}';
+  console.log(data_from_flask)
+</script>
+
+<body>
+
+<div class="container">
+  <div class="context">
+    <h4> Conversational Toxicity Detection </h4>
+  </div>
+
+  <!-- target="_blank" -->
+    <div class="container">
+      <form action="{{ url_for('predict') }}" method="post"  id="search-form">
+        <!-- <input id="comment_text" name="comment_text" type="text" placeholder="Enter your text here." autocomplete="off" autofocus> -->
+        <textarea class="form-control" id="comment_text" name="comment_text" type="text" placeholder="Enter your text here." autocomplete="off" autofocus> {{ user_input }}
+
+        </textarea>
+
+        <div class="feedback">
+          <!-- {{ feedback_text }} -->
+          
+             
+          {% if 'Thank' in feedback_text %}
+              <p> &#128077; {{ feedback_text }} </p> 
+          {% elif 'rephrase' in feedback_text %}
+              <p> &#128078; {{ feedback_text }} </p>
+          {% else %}
+              <p> {{feedback_text}} </p>
+          {% endif %}
+<!-- &#128077; -->
+<!-- &#128078; -->
+          
+        </div>
+
+        <div class="form-group row text-center">
+              <button id="predict" name="predict" type="submit" class="btn btn-primary">Predict</button>
+        </div>
+
+        <!-- <label>Comment Box</label>
+        <textarea class="form-control" id="comment_box" name="comment_text" rows="3" placeholder="Enter your text ..."></textarea> -->
+
+      </form>
+
+      <!-- <form action="{{ url_for('predict') }}" method="post" >
+        <div class="form-group row text-center">
+          <div class="col-sm-12">
+              <button id="predict" name="predict" type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </div>
+      </form> -->
+      
+      <p class="info"></p>
+
+
+
+      <!-- Chart stuff -->
+      <!-- <div id={{ chartID|safe }} class="chart" style="height: 600px; width: 600px"></div> -->
+      <div id={{ chartID|safe }} class="chart"></div>
+      <script>
+        var chart_id = {{ chartID|safe }}
+        var series = {{ series|safe }}
+        var title = {{ title|safe }}
+        var xAxis = {{ xAxis|safe }}
+        var yAxis = {{ yAxis|safe }}
+        var chart = {{ chart|safe }}
+      </script>
+
+
+    </div>
+
+</div>
+
+</body>
+
+
+{% endblock %}

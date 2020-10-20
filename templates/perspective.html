@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %} Toximator {% endblock %}
+{% block content %}
+
+<div class="container">
+    <h5> Toxicity detection with Perspective API</h5>
+    <div class="card">
+        <textarea id='client_text_area'></textarea>
+
+        <convai-checker
+
+            input-id='client_text_area'
+
+            demo-settings-json="{
+
+            &quot;gradientColors&quot;: [&quot;#25C1F9&quot;,&quot;#7C4DFF&quot;,&quot;#D400F9&quot;],
+
+            &quot;toxicScoreThreshold&quot;: 0.7,
+
+            &quot;neutralScoreThreshold&quot;: 0.3,
+
+            &quot;showFeedbackForNeutralScores&quot;: false,
+
+            &quot;showFeedbackForLowScores&quot;: false,
+
+            &quot;feedbackText&quot;: [&quot;&quot;,&quot;&quot;,&quot;x% likely to be toxic. Please edit.&quot;],
+
+            &quot;loadingIconStyle&quot;: &quot;circle_square_diamond&quot;,
+
+            &quot;usePluginEndpoint&quot;: true,
+
+            &quot;modelName&quot;: &quot;TOXICITY&quot;,
+
+            &quot;communityId&quot;: &quot;plugin-user_1599431100247-364006&quot;,
+
+            &quot;fontFamily&quot;: &quot;Google Sans, sans-serif&quot;
+
+            }">
+        </convai-checker>
+    </div>
+</div>
+{% endblock %}
